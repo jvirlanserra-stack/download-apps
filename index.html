@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descarga mis aplicaciones">
-    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" id="theme">
     <title>Descarga mis aplicaciones</title>
-    <link rel="stylesheet" href="/download-apps/themes.css">
 </head>
 
 <body>
@@ -14,6 +14,14 @@
     <a href="apk">Descargar para Android</a>
     <br>
     <a href="exe">Descargar para Windows</a>
-<!--    <a href="">Descargar probador de SB3s</a> -->
+    <!--    <a href="">Descargar probador de SB3s</a> -->
+    <script>
+        function establecerTema() {
+            const tema = String(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.getElementById('theme').href = "/assets/themes/" + tema + ".css"
+        }
+        document.addEventListener('DOMContentLoaded', establecerTema);
+    </script>
 </body>
+
 </html>
