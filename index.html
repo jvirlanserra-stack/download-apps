@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descarga mis aplicaciones">
-    <link rel="stylesheet" id="theme">
+    <style id="theme"></style>
     <title>Descarga mis aplicaciones</title>
 </head>
 
@@ -18,7 +18,12 @@
     <script>
         function establecerTema() {
             const tema = String(window.matchMedia('(prefers-color-scheme: dark)').matches);
-            document.getElementById('theme').href = "/assets/themes/" + tema + ".css"
+            fetch("/download-apps/assets/themes/" + tema + ".css")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('theme').innerHTML = data
+                }
+            );
         }
         document.addEventListener('DOMContentLoaded', establecerTema);
     </script>
