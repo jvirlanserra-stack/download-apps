@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descarga mis aplicaciones">
     <style id="theme"></style>
+    <script src="/download-apps/assets/scripts/establecerTema.js"></script>
     <title>Descarga mis aplicaciones</title>
 </head>
 
@@ -13,20 +14,8 @@
     <h1>Descarga mis aplicaciones</h1>
     <a href="apk">Descargar para Android</a>
     <br>
-    <a href="exe">Descargar para Windows</a>
-    <!--    <a href="">Descargar probador de SB3s</a> -->
-    <script>
-        function establecerTema() {
-            const tema = String(window.matchMedia('(prefers-color-scheme: dark)').matches);
-            fetch("/download-apps/assets/themes/" + tema + ".css")
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('theme').innerHTML = data
-                }
-            );
-        }
-        document.addEventListener('DOMContentLoaded', establecerTema);
-    </script>
+    <br>
+    <a href="exe">Descargar para Windowss</a>
 </body>
 
 </html>
