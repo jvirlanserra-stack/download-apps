@@ -1,11 +1,9 @@
-function establecerTema() {
-  const tema = String(
-    window.matchMedia("(prefers-color-scheme: dark)").matches, //ia
-  );
-  fetch("/download-apps/assets/templates/tags.html")
-    .then((response) => response.text())
+function importar() {
+  fetch("/download-apps/assets/templates/tags.html") //ia
+    .then((res) => res.text()) //ia
     .then((data) => {
-      document.getElementById("theme").innerHTML = data;
-    });
+      //ia
+      document.getElementById("templates").outerHTML = data; //ia
+    }); //ia
 }
-document.addEventListener("DOMContentLoaded", establecerTema); //ia
+document.addEventListener("DOMContentLoaded", importar); //ia
